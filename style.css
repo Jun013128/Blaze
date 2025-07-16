@@ -34,6 +34,11 @@ a {
   color: #000;
 }
 
+p {
+  font-family: 'Shippori Mincho';
+}
+
+/* TODO 全体にかけるやつをShippori Minchoにするかを確認する。 */
 .button {
   font-family: "Tenor Sans", sans-serif;
   font-weight: 400;
@@ -73,6 +78,7 @@ a {
   gap: 1px;
 }
 
+/* TODO 文字サイズの確認。 */
 .header-button::before {
   content: attr(data-kana);
   font-family: "Shippori Mincho", serif;
@@ -85,10 +91,73 @@ a {
 
 /* main */
 
+.home-section {
+  padding: 40px 4%;
+}
+
+.home-section p {
+  margin: 0 0 30px;
+  line-height: 200%;
+}
+
 .sub-title {
   font-family: "Shippori Mincho", serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 30px;
+}
+
+.sub-title::before {
+  content: attr(data-en);
+  font-family: "Tenor Sans";
+  font-size: 32px;
+}
+
+/* TODO 確認する。
+長方形 1
+
+position: absolute;
+width: 26px;
+height: 5px;
+left: 0px;
+top: 37px;
+
+background: #E3DBAF; */
+
+.stylist-section img {
+  margin: 0 0 30px;
+}
+
+.name  {
+  font-family: 'Shippori Mincho';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.position {
+  font-weight: 700;
+}
+
+.menu-section nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* TODO ここまで、色々確認したいところがある。 */
+.coupon-button {
+  padding: 10px 30px;
+}
+
+.menu-button {
+  padding: 10px 30px;
 }
 
 
