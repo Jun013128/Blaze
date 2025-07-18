@@ -35,18 +35,18 @@ a {
 }
 
 p {
-  font-family: 'Shippori Mincho';
+  font-family: "Shippori Mincho", serif;
 }
 
-/* TODO 全体にかけるやつをShippori Minchoにするかを確認する。 */
+/* TODO ボタンの全体にfont-weight: 700;をかけて、header-button に400をかけたが正しいかを確認する。 */
 .button {
   font-family: "Tenor Sans", sans-serif;
-  font-weight: 400;
   font-style: normal;
   color: #FFFFFF;
   background: linear-gradient(360deg, #DE6262 -24.07%, #FFB88C 88.18%);
   border-radius: 10px;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
 }
 
 
@@ -76,14 +76,15 @@ p {
   align-items: center;
   padding: 10px 30px;
   gap: 1px;
+  font-weight: 400;
 }
 
-/* TODO 文字サイズの確認。 */
 .header-button::before {
   content: attr(data-kana);
   font-family: "Shippori Mincho", serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 10px;
 }
 
 
@@ -95,9 +96,16 @@ p {
   padding: 40px 4%;
 }
 
+.home-section:nth-of-type(even) {
+  background-color: #FFFFFF;
+}
+
 .home-section p {
-  margin: 0 0 30px;
   line-height: 200%;
+}
+
+.home-section p:not(:last-child) {
+    margin: 0 0 30px;
 }
 
 .sub-title {
@@ -110,6 +118,7 @@ p {
   flex-direction: column;
   align-items: center;
   margin: 0 0 30px;
+  position: relative;
 }
 
 .sub-title::before {
@@ -118,29 +127,39 @@ p {
   font-size: 32px;
 }
 
-/* TODO 確認する。
-長方形 1
+.sub-title::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 5px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: 41px;
+  background: #E3DBAF;
+}
 
-position: absolute;
-width: 26px;
-height: 5px;
-left: 0px;
-top: 37px;
-
-background: #E3DBAF; */
+.stylist-photo {
+  display: flex;
+  justify-content: center;
+}
 
 .stylist-section img {
+  width: 170px;
   margin: 0 0 30px;
 }
 
-.name  {
-  font-family: 'Shippori Mincho';
+.name {
+  font-family: "Shippori Mincho", serif;
   font-size: 20px;
   font-weight: 700;
+  text-align: center;
 }
 
 .position {
   font-weight: 700;
+  text-align: center;
 }
 
 .menu-section nav {
@@ -151,14 +170,26 @@ background: #E3DBAF; */
   gap: 20px;
 }
 
-/* TODO ここまで、色々確認したいところがある。 */
 .coupon-button {
+  font-family: "Shippori Mincho", serif;
   padding: 10px 30px;
 }
 
+.coupon-button::before {
+  content: '';
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  background: url(image/logo-hotppepper.png) no-repeat 0 0 / contain;
+  vertical-align: middle;
+  margin: 0 6px 0 0;
+}
+
 .menu-button {
+  font-family: "Shippori Mincho", serif;
   padding: 10px 30px;
 }
+
 
 
 
