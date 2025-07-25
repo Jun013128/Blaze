@@ -18,6 +18,10 @@ body {
   background-color: var(--color-bg-beige);
 }
 
+body.is-active {
+  overflow: hidden;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -58,6 +62,16 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #F1EFE4;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+}
+/* TODOここのdivにクラスをつけたほうがいいかを確認する */
+.header div {
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
@@ -74,7 +88,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 30px;
+  padding: 10px 20px;
   gap: 1px;
   font-weight: 400;
 }
@@ -87,10 +101,92 @@ p {
   font-size: 10px;
 }
 
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  margin: 0 10px;
+  padding: 0;
+  position: relative;
+  z-index: 200;
+}
+/* TODO これはいるかを確認する。
+  cursor: pointer; */
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+}
+
+.hamburger span,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+/* TODO ここまで、グロナビが出ないので確認する。 */
+.global-nav {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  height: calc(100svh - 60px);
+  background: #F1EFE4;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 150;
+  padding-top: 80px;
+}
+
+.global-nav ul li {
+  padding: 20px;
+  text-align: center;
+}
+
+.global-nav ul li:hover {
+  background: #eee;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s visibility 0.3s;
+  z-index: 140;
+}
+
+
+
+body.is-active .global-nav {
+  transform: translateX(0);
+}
+
+body.is-active .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 
 
 /* main */
+
+.main-visual {
+  padding: 80px 0 0;
+}
 
 .home-section {
   padding: 40px 4%;
