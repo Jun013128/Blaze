@@ -4,6 +4,7 @@
   --color-bg-beige: #F1EFE4;
   --color-bg-white: #fff;
   --width-pc: 1000px;
+  --height-header: 80px;
 }
 
 body {
@@ -42,9 +43,8 @@ p {
   font-family: "Shippori Mincho", serif;
 }
 
-/* TODO ボタンの全体にfont-weight: 700;をかけて、header-button に400をかけたが正しいかを確認する。 */
 .button {
-  font-family: "Tenor Sans", sans-serif;
+  font-family: "Shippori Mincho", serif;
   font-style: normal;
   color: #FFFFFF;
   background: linear-gradient(360deg, #DE6262 -24.07%, #FFB88C 88.18%);
@@ -53,6 +53,10 @@ p {
   font-weight: 700;
 }
 
+.home-section,
+.footer-section{
+  padding: 40px 4%;
+}
 
 
 
@@ -62,16 +66,20 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #F1EFE4;
+  background: var(--color-bg-beige);
   position: fixed;
   top: 0;
   width: 100%;
+  height: var(--height-header);
   z-index: 200;
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
 }
-/* TODOここのdivにクラスをつけたほうがいいかを確認する */
-.header div {
+
+.header-inner {
   display: flex;
   align-items: center;
+  gap: 0 15px;
+  margin: 0 4% 0 0;
 }
 
 .logo img {
@@ -79,18 +87,15 @@ p {
   height: 80px;
 }
 
-.global-nav {
-  display: none;
-}
-
 .header-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 6px 20px;
   gap: 1px;
   font-weight: 400;
+  font-family: "Tenor Sans";
 }
 
 .header-button::before {
@@ -101,82 +106,90 @@ p {
   font-size: 10px;
 }
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  margin: 0 10px;
-  padding: 0;
-  position: relative;
-  z-index: 200;
-}
-/* TODO これはいるかを確認する。
-  cursor: pointer; */
-
-.hamburger::before,
-.hamburger::after {
-  content: '';
-}
-
-.hamburger span,
-.hamburger::before,
-.hamburger::after {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: #333;
-  transition: all 0.3s ease-in-out;
-}
-
-/* TODO ここまで、グロナビが出ないので確認する。 */
 .global-nav {
-  position: fixed;
-  top: 60px;
-  right: 0;
-  width: 300px;
-  height: calc(100svh - 60px);
-  background: #F1EFE4;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 150;
-  padding-top: 80px;
+  font-family: "Tenor Sans";
 }
 
-.global-nav ul li {
-  padding: 20px;
-  text-align: center;
-}
+@media (width <= 767px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    position: relative;
+    z-index: 200;
+  }
 
-.global-nav ul li:hover {
-  background: #eee;
-}
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+  }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s visibility 0.3s;
-  z-index: 140;
-}
+  .hamburger span,
+  .hamburger::before,
+  .hamburger::after {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .global-nav {
+    position: fixed;
+    top: var(--height-header);
+    right: 0;
+    width: calc(100vw - 80px);
+    height: calc(100svh - var(--height-header));
+    background: var(--color-bg-beige);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 150;
+    font-size: 20px;
+    padding: 80px 8% 0;
+  }
+
+  .global-nav ul {
+    border-top: 1px solid #E3DBAF;
+  }
+
+  .global-nav ul li {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #E3DBAF;
+  }
+
+  .global-nav ul li:hover {
+    background: #eee;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s visibility 0.3s;
+    z-index: 140;
+  }
 
 
 
-body.is-active .global-nav {
-  transform: translateX(0);
-}
+  body.is-active .global-nav {
+    transform: translateX(0);
+  }
 
-body.is-active .overlay {
-  opacity: 1;
-  visibility: visible;
+  body.is-active .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 
@@ -186,10 +199,6 @@ body.is-active .overlay {
 
 .main-visual {
   padding: 80px 0 0;
-}
-
-.home-section {
-  padding: 40px 4%;
 }
 
 .home-section:nth-of-type(even) {
@@ -267,8 +276,10 @@ body.is-active .overlay {
 }
 
 .coupon-button {
-  font-family: "Shippori Mincho", serif;
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .coupon-button::before {
@@ -282,14 +293,57 @@ body.is-active .overlay {
 }
 
 .menu-button {
-  font-family: "Shippori Mincho", serif;
-  padding: 10px 30px;
+  padding: 16px 30px;
 }
 
+.access-box {
+  border-top: 1px solid #E3DBAF;
+  padding: 10px 0;
+}
 
+.access-box:last-of-type {
+  border-bottom: 1px solid #E3DBAF;
+}
+
+/* TODO pタグとaタグをdivで囲ってdisplay: flex;を入れてみた、大丈夫かを確認する。 */
+.address-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* TODO MAPのボタンをpositionで移動させる方とどっちがいいかを確認する。 */
+/* .access-box {
+  border-bottom: 1px solid #E3DBAF;
+  position: relative;
+  padding: 10px 0;
+}
+
+.map-button {
+  position: absolute;
+  top: calc(100% - 37px);
+  right: 55px;
+} */
+
+.access-box p:not(:last-child){
+  margin: 0;
+}
+
+.third-title {
+  font-family: "Shippori Mincho", serif;
+  font-size: 16px; 
+}
+
+.recruitment {
+  text-align: center;
+  margin: 0 0 30px;
+}
+
+/* TODO ここまで、次はRESERVEのボタンから */
 
 
 /* footer */
+
 
 
 
