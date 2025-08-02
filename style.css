@@ -210,7 +210,7 @@ p {
 }
 
 .home-section p:not(:last-child) {
-    margin: 0 0 30px;
+  margin: 0 0 30px;
 }
 
 .sub-title {
@@ -267,7 +267,7 @@ p {
   text-align: center;
 }
 
-.menu-section nav {
+.nav-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,7 +276,7 @@ p {
 }
 
 .coupon-button {
-  padding: 10px 30px;
+  padding: 10px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -332,19 +332,59 @@ p {
 .third-title {
   font-family: "Shippori Mincho", serif;
   font-size: 16px; 
+  margin: 0 0 4px;
 }
 
+.access-box ul {
+  font-family: "Shippori Mincho", serif;
+  line-height: 200%;
+  list-style-type: disc;
+  padding: 0 0 0 24px;
+  
+} 
+
+/* TODO font-sizeを全体に16pxでかけたほうがいいかを確認する。 */
 .recruitment {
+  font-family: "Shippori Mincho", serif;
+  font-size: 16px; 
   text-align: center;
   margin: 0 0 30px;
 }
 
-/* TODO ここまで、次はRESERVEのボタンから */
+
 
 
 /* footer */
 
+.tel-button {
+  padding: 16px 30px;
+}
 
+.tel-button::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(image/icon-phone.svg) no-repeat 0 0 / contain;
+  margin: 0 8px 0 0;
+  vertical-align: bottom;
+}
+
+/* TODO ここにホットペッパーのアイコンをいれるべきかを確認する。 */
+.reserve-button {
+  padding: 20px 12px;
+}
+
+.reserve-button::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(image/icon-cut.svg) no-repeat 0 0 / contain;
+  margin: 0 8px 0 0;
+  vertical-align: bottom;
+}
+/* TODO ここまで、次はfooterから */
 
 
 
