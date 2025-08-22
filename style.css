@@ -23,6 +23,12 @@ body.is-active {
   overflow: hidden;
 }
 
+h1,
+h2,
+h3 {
+  font-size: 16px; 
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -60,6 +66,8 @@ p {
 }
 
 
+
+/* SP Style */
 
 /* header */
 
@@ -195,7 +203,6 @@ p {
 
 
 
-
 /* main */
 
 .main-visual {
@@ -302,25 +309,11 @@ p {
   border-bottom: 1px solid #E3DBAF;
 }
 
-/* TODO pタグとaタグをdivで囲ってdisplay: flex;を入れてみた、大丈夫かを確認する。 */
 .address-box {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-/* TODO MAPのボタンをpositionで移動させる方とどっちがいいかを確認する。 */
-/* .access-box {
-  border-bottom: 1px solid #E3DBAF;
-  position: relative;
-  padding: 10px 0;
-}
-
-.map-button {
-  position: absolute;
-  top: calc(100% - 37px);
-  right: 55px;
-} */
 
 .access-box p:not(:last-child){
   margin: 0;
@@ -328,7 +321,6 @@ p {
 
 .third-title {
   font-family: "Shippori Mincho", serif;
-  font-size: 16px; 
   margin: 0 0 4px;
 }
 
@@ -339,7 +331,7 @@ p {
   padding: 0 0 0 24px;
   
 }
-/* TODO 白いグラデーションをかけたが、あっているかを確認する。 */
+
 .recruit-section {
   position: relative;
   z-index: 1;
@@ -356,14 +348,11 @@ p {
   z-index: 2;
 }
 
-/* TODO font-sizeを全体に16pxでかけたほうがいいかを確認する。 */
 .recruitment {
   font-family: "Shippori Mincho", serif;
-  font-size: 16px; 
   text-align: center;
   margin: 0 0 30px;
 }
-
 
 
 
@@ -383,7 +372,6 @@ p {
   vertical-align: bottom;
 }
 
-/* TODO ここにホットペッパーのアイコンをいれるべきかを確認する。 */
 .reserve-button {
   padding: 20px 12px;
 }
@@ -397,90 +385,62 @@ p {
   margin: 0 8px 0 0;
   vertical-align: bottom;
 }
-/* TODO どっちがいいか、それとも別かを確認する。 */
 
-/* .footer-inner {
+.footer-inner {
   font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.footer-logo {
-  margin: 0 0 20px;
+  gap: 20px 0;
 }
 
 .footer-logo img {
   width: 100px;
 }
 
-.footer-info {
-  margin: 0 0 20px;
-}
-
-.footer-nav {
-  width: 100%;
-  margin: 0 0 20px;
-}
-
 .footer-nav ul {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.instagram-icon {
-  margin: 0 0 30px;
-} */
-
-.footer-inner {
-  font-size: 14px;
-}
-
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 20px;
-}
-
-.footer-logo img {
-  width: 100px;
-}
-
-.footer-info {
-  text-align: center;
-  margin: 0 0 20px;
-}
-
-.footer-nav {
-  margin: 0 0 20px;
-}
-
-.footer-nav ul {
-  display: flex;
-  justify-content: space-around;
-}
-
-.instagram-icon {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 30px;
-}
-/* TODO コピーライトはもうちょっと整えた方が良いかを確認する。 */
 .copyright {
   text-align: center;
+  padding: 0 0 20px;
 }
 
 footer {
   background: url(image/footer-bg.png) no-repeat center / cover;
 }
-/* TODO ここまで、ヘッダーとハンバーガーメニューにHOMEを作るかを確認する。 */
+/* TODO ここまで、次はMOMEのPCから */
+
+
+
+/* MENU Page SP */
+
+
 
 
 /* PC */
-
+/* TODO これはいるかを確認する。
 @media (any-hover: hover) {
   a:hover {
     opacity: .75;
+  }
+} */
+
+
+/* PC Style */
+@media screen and (width <= 768px) {
+  
+
+  /* MENU Page */
+
+}
+
+@media (any-hover: hover) {
+  a:hover {
+    background: yellow;
   }
 }
