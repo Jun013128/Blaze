@@ -413,7 +413,7 @@ p {
 footer {
   background: url(image/footer-bg.png) no-repeat center / cover;
 }
-/* TODO ここまで、次はMOMEのPCから */
+
 
 
 
@@ -422,25 +422,55 @@ footer {
 
 
 
-/* PC */
-/* TODO これはいるかを確認する。
+/*MOME PC Style */
+@media screen and (width >= 768px) {
+
+  .hamburger {
+    display: none;
+  }
+/* TODO ヘッダーの調整を確認する。あと予約するボタンが、.logoにflex-shrink: 0;をかけたせいで、はみ出る。
+  (gapのサイズを40pxにしたら、ブラウザのサイズによってはみ出る)
+  予約するボタンをheader-innerから出すでもいいかも？確認する。
+  マウスホバーした時に下線を入れてもいいかも。 */
+  .logo {
+    flex-shrink: 0;
+    margin: 0 10px 0 0;
+  }
+
+  .header-inner {
+    flex-grow: 1;
+  }
+
+  .global-nav {
+    margin: 0 auto;
+  }
+
+  .global-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .global-nav a::before {
+    content: attr(data-kana);
+    font-family: "Shippori Mincho", serif;
+    font-size: 10px;
+  }
+
+  .global-nav ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  /* MENU PC Page */
+  
+
+}
+
 @media (any-hover: hover) {
   a:hover {
     opacity: .75;
   }
-} */
-
-
-/* PC Style */
-@media screen and (width <= 768px) {
-  
-
-  /* MENU Page */
-
 }
 
-@media (any-hover: hover) {
-  a:hover {
-    background: yellow;
-  }
-}
+
