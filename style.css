@@ -212,8 +212,13 @@ p {
 .home-section:nth-of-type(even) {
   background-color: #FFFFFF;
 }
-
+/* TODO PCの為にhome-sectionのpを新しいdivに入れたらスマホの方のmarginがなくなっていたので新しく、
+concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確認する。 */
 .home-section p:not(:last-child) {
+  margin: 0 0 30px;
+}
+
+.concept-text p{
   margin: 0 0 30px;
 }
 
@@ -234,6 +239,7 @@ p {
   content: attr(data-en);
   font-family: "Tenor Sans";
   font-size: 32px;
+  margin: 0 0 8px;
 }
 
 .sub-title::after {
@@ -461,6 +467,49 @@ footer {
     display: flex;
     gap: 30px;
   }
+
+  .home-section {
+    padding: 80px 4%;
+  }
+
+  .concept-section {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+  /* TODO 一応PCの方ではconcept-text p のmarginを消した、ここも確認する。 */
+  .concept-text p {
+    margin: 0;
+  }
+  /* TODO 書き方はこれで大丈夫か、新しくクラスを作った、CONCEPTとSTYLISTとACCESS */
+  .pc-sub-title {
+    align-items: normal;
+  }
+
+  .pc-sub-title::after {
+    margin: 0;
+  }
+  /* TODO gridの書き方を確認する。 */
+  .stylist-section {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    gap: 20px;
+  }
+
+  .stylist-photo {
+    display: block;
+  }
+
+  .name,
+  .position {
+    text-align: left;
+  }
+
+  .pc-grid-end {
+    align-self: end;
+  }
+
 
   /* MENU PC Page */
   
