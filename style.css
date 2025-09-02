@@ -338,9 +338,14 @@ concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確
   
 }
 
+iframe {
+  display: none;
+}
+
 .recruit-section {
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .recruit-section::after {
@@ -415,9 +420,9 @@ concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確
   text-align: center;
   padding: 0 0 20px;
 }
-
+/* TODO pcの左側に白い余白ができる、修正する。 */
 footer {
-  background: url(image/footer-bg.png) no-repeat center / cover;
+  background: url(image/footer-bg.png) no-repeat top center / cover;
 }
 
 
@@ -509,6 +514,40 @@ footer {
   .pc-grid-end {
     align-self: end;
   }
+
+  .menu-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-section p {
+    max-width: 500px;
+  }
+/* TODO メニューの整え方を確認する。 marginをどうするか考える。*/
+  .nav-button {
+    margin: 10px 0 0;
+  }
+/* TODO Google map、これでサイズとか色々大丈夫かを確認する。 */
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .access-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2%;
+  }
+
+  .recruit-section p {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+
+
 
 
   /* MENU PC Page */
