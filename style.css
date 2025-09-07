@@ -23,6 +23,10 @@ body.is-active {
   overflow: hidden;
 }
 
+main {
+  padding: 80px 0 0;
+}
+
 h1,
 h2,
 h3 {
@@ -61,7 +65,8 @@ p {
 }
 
 .home-section,
-.footer-section{
+.footer-section,
+.menu-common{
   padding: 40px 4%;
 }
 
@@ -212,9 +217,9 @@ p {
 
 
 /* main */
-
+/* TODO ここのパディングはmain自体にかけたほうがいいのかを確認する。 */
 .main-visual {
-  padding: 80px 0 0;
+  /* padding: 80px 0 0; */
 }
 
 .home-section:nth-of-type(even) {
@@ -443,6 +448,8 @@ footer {
 
 
 /* MENU Page SP */
+
+
 
 
 
