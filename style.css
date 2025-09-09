@@ -120,7 +120,8 @@ p {
   font-size: 10px;
 }
 
-.global-nav {
+.global-nav,
+.menu-button-list {
   font-family: "Tenor Sans";
 }
 
@@ -449,7 +450,40 @@ footer {
 
 /* MENU Page SP */
 
+.menu-nav-list {
+  margin: 0 0 40px;
+}
 
+.menu-button-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.menu-jump-button {
+  display: block;
+  background: #fff;
+  border: 1px solid #E3DBAF;
+  border-radius: 10px;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  position: relative;
+}
+
+.menu-jump-button::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(image/icon-arrow-bottom.svg) no-repeat 0 0 / contain;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 
 
