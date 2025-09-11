@@ -6,6 +6,11 @@
   --width-pc: 1000px;
   --height-header: 80px;
 }
+/* TODO スクロールのスムーズが効かなかったから、確認する。 */
+html {
+  scroll-padding-top: var(--height-header);
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Helvetica Neue",
@@ -24,7 +29,7 @@ body.is-active {
 }
 
 main {
-  padding: 80px 0 0;
+  padding: var(--height-header) 0 0;
 }
 
 h1,
@@ -97,8 +102,8 @@ p {
 }
 
 .logo img {
-  width: 80px;
-  height: 80px;
+  width: var(--height-header);
+  height: var(--height-header);
 }
 
 .header-button {
@@ -126,6 +131,12 @@ p {
 }
 
 @media (width <= 767px) {
+
+  /* TODO 一応残しておく。 */
+  .br-pc {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -173,9 +184,13 @@ p {
   }
 
   .global-nav ul li {
-    padding: 20px;
     text-align: center;
     border-bottom: 1px solid #E3DBAF;
+  }
+
+  .global-nav a {
+    display: block;
+    padding: 20px;
   }
 
   .global-nav ul li:hover {
@@ -209,26 +224,17 @@ p {
   .access-content {
   margin: 0 0 30px;
   }
-/* TODO 一応残しておく。 */
-  .br-pc {
-    display: none;
-  }
 }
 
 
 
 /* main */
-/* TODO ここのパディングはmain自体にかけたほうがいいのかを確認する。 */
-.main-visual {
-  /* padding: 80px 0 0; */
-}
 
 .home-section:nth-of-type(even) {
   background-color: #FFFFFF;
 }
-/* TODO PCの為にhome-sectionのpを新しいdivに入れたらスマホの方のmarginがなくなっていたので新しく、
-concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確認する。 */
-.home-section p:not(:last-child) {
+
+:where(.home-section p:not(:last-child)) {
   margin: 0 0 30px;
 }
 
@@ -241,7 +247,7 @@ concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,7 +446,7 @@ concept-textのpにmargin: 0 0 30pxを入れたが、これで大丈夫かを確
   text-align: center;
   padding: 0 0 20px;
 }
-/* TODO pcの左側に白い余白ができる、修正する。 */
+
 footer {
   background: url(image/footer-bg.png) no-repeat top center / cover;
 }
@@ -484,6 +490,58 @@ footer {
   top: 50%;
   transform: translateY(-50%);
 }
+/* TODO ここのfont-weightをどうするか考える、400か今の状態(h3がbold 700) 
+あと、h3にデザインを足すかを考える。*/
+.menu-title {
+  font-size: 28px;
+  font-family: "Tenor Sans";
+  letter-spacing: .1em;
+  text-align: center;
+  margin: 0 0 30px;
+}
+
+.menu-list-box:last-of-type {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-list-box:last-of-type::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0));
+  z-index: 2;
+}
+
+.menu-list-box ul {
+  background: #fff;
+  padding: 20px 40px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+/* TODO liの中にあった文字をpで囲んで、liにflexをかけてspanとのgapをつけて整えた、大丈夫か確認する */
+.menu-list-box li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 0;
+}
+
+.menu-list-box li:not(:last-child) {
+  border-bottom: 1px solid #E3DBAF;
+}
+
+.menu-list-box p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.menu-list-note {
+  font-size: 10px;
+}
+
 
 
 
@@ -494,10 +552,7 @@ footer {
   .hamburger {
     display: none;
   }
-/* TODO ヘッダーの調整を確認する。あと予約するボタンが、.logoにflex-shrink: 0;をかけたせいで、はみ出る。
-  (gapのサイズを40pxにしたら、ブラウザのサイズによってはみ出る)
-  予約するボタンをheader-innerから出すでもいいかも？確認する。
-  マウスホバーした時に下線を入れてもいいかも。 */
+/* TODO マウスホバーした時に下線を入れてもいいかも。 */
   .logo {
     flex-shrink: 0;
     margin: 0 10px 0 0;
@@ -543,11 +598,11 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px;
   }
-  /* TODO 一応PCの方ではconcept-text p のmarginを消した、ここも確認する。 */
+
   .concept-text p {
     margin: 0;
   }
-  /* TODO 書き方はこれで大丈夫か、新しくクラスを作った、CONCEPTとSTYLISTとACCESS */
+  
   .pc-sub-title {
     align-items: normal;
   }
@@ -555,10 +610,10 @@ footer {
   .pc-sub-title::after {
     margin: 0;
   }
-  /* TODO gridの書き方を確認する。 */
+  
   .stylist-section .home-inner {
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 170px auto;
     gap: 20px;
   }
 
@@ -571,8 +626,16 @@ footer {
     text-align: left;
   }
 
+  .position {
+    margin: 0 0 10px;
+  }
+
   .pc-grid-end {
     align-self: end;
+  }
+
+  .pc-grid-end p:not(.position) {
+    margin: 0 0 20px;
   }
 
   .menu-section {
@@ -584,9 +647,9 @@ footer {
   .menu-section p {
     max-width: 500px;
   }
-/* TODO メニューの整え方を確認する。 marginをどうするか考える。*/
-  .nav-button {
-    margin: 10px 0 0;
+
+  .menu-section p {
+    margin: 0 0 40px;
   }
 
   .access-section .home-inner {
@@ -595,12 +658,13 @@ footer {
     gap: 20px;
     align-items: center;
   }
-
+  /* TODO recruitは width 500px で固定して、margin 0 autoで真ん中にしたけど、上のmenuはflexで整えてる。
+  どちらを使うほうがいいか。 */
   .recruit-section p {
     width: 500px;
     margin: 0 auto;
   }
-
+  /* TODO gridの使い方、auto-fit、fillの使い方がわからなかったから flexを使った。 */
   .footer-nav ul {
     display: flex;
   }
@@ -609,7 +673,13 @@ footer {
 
 
   /* MENU PC Page */
-  
+
+  .menu-list-box ul {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+
 
 }
 
