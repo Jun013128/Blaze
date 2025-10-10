@@ -671,6 +671,10 @@ footer {
 
 }
 
+
+
+
+
 @media (any-hover: hover) {
   a:hover {
     opacity: .75;
