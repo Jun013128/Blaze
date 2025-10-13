@@ -127,7 +127,8 @@ p {
 }
 
 .global-nav,
-.menu-button-list {
+.menu-button-list,
+.footer-nav {
   font-family: "Tenor Sans";
 }
 
@@ -551,6 +552,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
 
   .global-nav-link::before {
@@ -560,6 +562,9 @@ footer {
   }
 
   .global-nav-link::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
     background: #000;
     content: '';
     width: 100%;
@@ -655,6 +660,24 @@ footer {
     grid-template-columns: repeat(6, auto);
   }
 
+  .footer-nav-link {
+    position: relative;
+  }
+
+  .footer-nav-link::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    background: #000;
+    content: '';
+    width: 100%;
+    height: 2px;
+    transform-origin: center top;
+    transform: scale(0, 1);
+    transition: transform .3s;
+  }
+
 
 
 
@@ -685,8 +708,8 @@ footer {
     transform: scale(1.04);
   }
 
-  .global-nav-link:hover::after {
-    transform-origin: center top;
+  .global-nav-link:hover::after,
+  .footer-nav-link:hover::after {
     transform: scale(1.1);
   }
 
