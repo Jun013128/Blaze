@@ -207,7 +207,9 @@ p {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s visibility 0.3s;
+    /* チェックしたらエラーだったので確認する。カンマがなかった。transition: opacity 0.3s visibility 0.3s;
+    あとハンバーガーメニューを閉じた時に背景の影をゆっくり切り替わる様にしたがあっているかを確認する。 */
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
     z-index: 140;
   }
 
@@ -220,6 +222,8 @@ p {
   body.is-active .overlay {
     opacity: 1;
     visibility: visible;
+    /* TODO こっちに visibility 0s 0s; はいらない？ */
+    transition: opacity 0.3s ease;
   }
 
   .access-content {
@@ -711,6 +715,10 @@ footer {
   .global-nav-link:hover::after,
   .footer-nav-link:hover::after {
     transform: scale(1.1);
+  }
+
+  .map-button:hover {
+    transform: scale(1.4);
   }
 
   .menu-jump-button:hover {
