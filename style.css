@@ -150,14 +150,10 @@ p {
     font-size: 10px;
     padding: 40px 0 0;
   }
-/* TODO 文字のフォントを変えるか考える。 */
+  
   body.is-active .hamburger {
     background: url(image/icon-cut.svg) no-repeat 0 0 / contain;
   }
-
-  /* body.is-active .header-inner span::after {
-    content: "閉じる";
-  } */
 
   .global-nav {
     position: fixed;
@@ -187,7 +183,7 @@ p {
     flex-direction: column;
     padding: 15px 0;
   }
-/* TODO ハンバーガーメニューの中にdata-kanaでふりがなを入れた。確認する。 */
+
   .global-nav-link::before {
     content: attr(data-kana);
     font-family: "Shippori Mincho", serif;
@@ -207,9 +203,7 @@ p {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    /* チェックしたらエラーだったので確認する。カンマがなかった。transition: opacity 0.3s visibility 0.3s;
-    あとハンバーガーメニューを閉じた時に背景の影をゆっくり切り替わる様にしたがあっているかを確認する。 */
-    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    transition: opacity .3s ease, visibility 0s .3s;
     z-index: 140;
   }
 
@@ -222,8 +216,7 @@ p {
   body.is-active .overlay {
     opacity: 1;
     visibility: visible;
-    /* TODO こっちに visibility 0s 0s; はいらない？ */
-    transition: opacity 0.3s ease;
+    transition: opacity .3s ease;
   }
 
   .access-content {

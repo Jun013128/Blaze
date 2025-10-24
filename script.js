@@ -2,8 +2,13 @@ const
   menulinks = document.querySelectorAll('.global-nav-link'),
   hamburger = document.querySelector('#hamburger'),
   overlay = document.querySelector('#overlay'),
-  menuLabel = hamburger.querySelector('span');
-// TODO メニューと閉じるの切り替えを追加した、確認する。
+  menuLabel = document.querySelector('#menulabel');
+  
+const hamburgerClose = () => {
+  document.body.classList.remove('is-active');
+  menuLabel.textContent = 'メニュー';
+};
+
 hamburger.addEventListener('click', () => {
   document.body.classList.toggle('is-active');
   if (document.body.classList.contains('is-active')) {
@@ -13,16 +18,12 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-overlay.addEventListener('click', () => {
-  document.body.classList.remove('is-active');
-  menuLabel.textContent = 'メニュー';
-});
+overlay.addEventListener('click', hamburgerClose);
 
 menulinks.forEach(link => {
   link.addEventListener('click', () => {
     if (document.body.classList.contains('is-active')) {
-      document.body.classList.remove('is-active');
-      menuLabel.textContent = 'メニュー';
+      hamburgerClose();
     }
   });
 });
