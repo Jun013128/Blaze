@@ -27,3 +27,15 @@ menulinks.forEach(link => {
     }
   });
 });
+// TODO とりあえずフェードスライドはできたと思うけど、画像をどうするか確認する。
+$('.mv-slider').slick({
+  fade: true,
+  speed: 1500,
+  autoplaySpeed: 3000,
+  arrows: false,
+  autoplay: true,
+  slidesToshow: 1,
+  slidesToscroll: 1,
+  infinite: true,
+  dots: true,
+});
