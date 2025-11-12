@@ -11,7 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Tenor+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="image/Logo_Blaze.png" type="image/png">
+  <!-- TODO slick sliderの導入、ローカルにダウンロードするかを確認する。 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <link rel="icon" href="image/logo_Blaze.png" type="image/png">
   <!-- TODO OGP設定を確認する。 -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://example.com/">
@@ -22,6 +25,11 @@
   <meta property="og:image:alt" content="">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <!-- TODO jQueryとslickををCDNで導入、ローカルにダウンロードするかを確認する。
+   <body> 終了タグの前に書いたほうがいいかの確認。
+    type="text/javascript"は省略しても良いのか確認する。 -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script src="script.js" defer></script>
   <title>【宮崎市】美容室 Dear Silent Blaze hair&make | ディア サイレント ブレイズ</title>
 </head>
@@ -31,7 +39,7 @@
       <!-- TODO サイトを公開直前に / に変えると良い。 -->
       <a href="index.html">
         <!-- TODO ロゴを一応作ったので変更するかを確認。 -->
-        <img src="image/logo.jpg" alt="Dear Silent Blaze Hair&Make" width="1178" height="1170">
+        <img src="image/logo.jpg" alt="Dear Silent Blaze hair&make" width="1178" height="1170">
       </a>
     </h1>
 
@@ -70,7 +78,20 @@
 
   <main>
     <div class="main-visual">
-      <img src="image/mv.jpg" alt="メインルーム" width="1280" height="655">
+      <ul class="mv-slider">
+        <li>
+          <img src="image/mv1.jpg" alt="Dear Silent Blaze hair&makeの正面入口" width="1024" height="768">
+        </li>
+        <li>
+          <img src="image/mv2.jpg" alt="美容室の受付カウンターと待合スペース" width="1024" height="768">
+        </li>
+        <li>
+          <img src="image/mv3.jpg" alt="通常の施術スペース" width="4032" height="3024">
+        </li>
+        <li>
+          <img src="image/mv4.jpg" alt="サイレントルームの施術スペース" width="4032" height="3024">
+        </li>
+      </ul>
     </div>
 
     <section class="home-section concept-section" id="concept">

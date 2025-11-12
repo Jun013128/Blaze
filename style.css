@@ -227,6 +227,17 @@ p {
 
 
 /* main */
+/* TODO mvの画像の調節とかを確認する。
+あと画像の下にちょっとスペースがある、これも確認。 */
+.main-visual {
+  background-color: #000;
+}
+
+.mv-slider {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
 
 .home-section:nth-of-type(even) {
   background-color: #FFFFFF;
@@ -315,7 +326,7 @@ p {
   display: inline-block;
   width: 90px;
   height: 30px;
-  background: url(image/logo-hotppepper.png) no-repeat 0 0 / contain;
+  background: url(image/logo-hotpepper.png) no-repeat 0 0 / contain;
   vertical-align: middle;
   margin: 0 6px 0 0;
 }
