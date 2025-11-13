@@ -1,3 +1,7 @@
+/**
+ * 共通 ハンバーガーメニュー
+ **/
+
 const
   menulinks = document.querySelectorAll('.global-nav-link'),
   hamburger = document.querySelector('#hamburger'),
@@ -27,11 +31,15 @@ menulinks.forEach(link => {
     }
   });
 });
-// TODO とりあえずフェードスライドはできたと思うけど、画像をどうするか確認する。
-$('.mv-slider').slick({
+
+/**
+ * トップページのフェードスライド
+ **/ 
+
+$('#mv-slider').slick({
   fade: true,
   speed: 1500,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 4000,
   arrows: false,
   autoplay: true,
   slidesToshow: 1,
