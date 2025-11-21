@@ -166,7 +166,8 @@ p {
     transition: transform 0.3s ease-in-out;
     z-index: 150;
     font-size: 20px;
-    padding: 80px 8% 0;
+    padding: 80px 8%;
+    overflow-y: auto;
   }
 
   .global-nav ul {
@@ -710,6 +711,10 @@ footer {
 @media screen and (width >= 1280px) {
   .mv-slider li img {
     height: 655px;
+  }
+
+  .mv-position-top img {
+    object-position: center top;
   }
 }
 
