@@ -146,6 +146,7 @@ p {
     width: 40px;
     height: 40px;
     border: none;
+    color: #000;
     font-family: "Tenor Sans";
     font-size: 10px;
     padding: 40px 0 0;
@@ -158,11 +159,11 @@ p {
   .global-nav {
     position: fixed;
     top: var(--height-header);
-    right: 0;
+    left: 100%;
     width: calc(100vw - 80px);
     height: calc(100svh - var(--height-header));
     background: var(--color-bg-beige);
-    transform: translateX(100%);
+    transform: translateX(0);
     transition: transform 0.3s ease-in-out;
     z-index: 150;
     font-size: 20px;
@@ -211,7 +212,7 @@ p {
 
 
   body.is-active .global-nav {
-    transform: translateX(0);
+    transform: translateX(-100%);
   }
 
   body.is-active .overlay {
