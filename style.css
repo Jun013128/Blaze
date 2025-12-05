@@ -460,7 +460,7 @@ footer {
 
 .menu-button-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -485,7 +485,7 @@ footer {
   height: 16px;
   background: url(image/icon-arrow-bottom.svg) no-repeat 0 0 / contain;
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -525,6 +525,10 @@ footer {
   font-size: 14px;
   font-family: "Shippori Mincho", serif;
   font-weight: 600;
+}
+
+.menu-list-label span {
+  margin: 0 0 0 1em;
 }
 
 .menu-list-note {
@@ -702,6 +706,10 @@ footer {
 
   .menu-list-box:last-of-type {
     padding-bottom: 300px;
+  }
+
+  .menu-button-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 
 }
