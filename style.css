@@ -247,6 +247,17 @@ p {
 :where(.home-section p:not(:last-child)) {
   margin: 0 0 30px;
 }
+/* TODO フェードインを追加した、確認。 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
 
 .concept-text p{
   margin: 0 0 30px;
