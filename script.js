@@ -6,7 +6,9 @@ const
   menulinks = document.querySelectorAll('.global-nav-link'),
   hamburger = document.querySelector('#hamburger'),
   overlay = document.querySelector('#overlay'),
-  menuLabel = document.querySelector('#menulabel');
+  menuLabel = document.querySelector('#menulabel'),
+  // TODO フェードインを追加した、確認。
+  els = document.querySelectorAll('.fade-in');
   
 const hamburgerClose = () => {
   document.body.classList.remove('is-active');
@@ -31,3 +33,15 @@ menulinks.forEach(link => {
     }
   });
 });
+// TODO フェードインを追加した、確認。
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+    }
+  });
+},{
+  rootMargin: '0px 0px -20% 0px',
+  threshold: 0
+});
+els.forEach(el => observer.observe(el));
