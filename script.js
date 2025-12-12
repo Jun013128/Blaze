@@ -7,7 +7,6 @@ const
   hamburger = document.querySelector('#hamburger'),
   overlay = document.querySelector('#overlay'),
   menuLabel = document.querySelector('#menulabel'),
-  // TODO フェードインを追加した、確認。
   els = document.querySelectorAll('.fade-in');
   
 const hamburgerClose = () => {
@@ -33,7 +32,11 @@ menulinks.forEach(link => {
     }
   });
 });
-// TODO フェードインを追加した、確認。
+
+
+/**
+ * スクロールフェードイン
+ **/
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
