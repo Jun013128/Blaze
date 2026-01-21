@@ -76,6 +76,55 @@ p {
 .menu-common{
   padding: 40px 4%;
 }
+/* TODO ページの最初のアニメーションを入れてみたがこれで大丈夫かを確認する。 */
+.start {
+  background-color: var(--color-bg-beige);
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: grid;
+  place-items: center;
+  /* 背景のフェードアウト：1.0秒待ってから消え始めるように遅らせます */
+  transition: opacity 1.0s ease-in-out 1.0s, visibility 1.0s ease-in-out 1.0s;
+}
+
+.start p {
+  width: 280px;
+  opacity: 0;
+  /* 出現時のアニメーション */
+  animation: logoSoftFadeIn 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.5s;
+}
+
+.start.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.start.is-loaded p {
+  /* logoFadeOutというアニメーションを0.5秒で実行する */
+  animation: logoFadeOut 0.5s ease-out forwards;
+}
+
+@keyframes logoSoftFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 消える時：ここがポイント！ */
+@keyframes logoFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+
 
 
 
@@ -138,7 +187,7 @@ p {
   .br-pc {
     display: none;
   }
-/* TODO ハンバーガーメニューのアニメーションでハサミ切り替えを今度やる。 */
+/* TODO ハンバーガーメニューのアニメーションでハサミを動かしたがこれで大丈夫かを確認する。 */
   .hamburger {
     display: flex;
     justify-content: center;
@@ -150,10 +199,26 @@ p {
     font-family: "Tenor Sans";
     font-size: 10px;
     padding: 40px 0 0;
+
+    animation: scissorClose 0.4s ease-out forwards;
   }
   
   body.is-active .hamburger {
     background: url(image/icon-cut.svg) no-repeat 0 0 / contain;
+    
+    animation: scissorOpen 0.4s ease-out forwards;
+  }
+
+  @keyframes scissorOpen {
+    0% { transform: scale(1); }
+    30% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes scissorClose {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
 
   .global-nav {
